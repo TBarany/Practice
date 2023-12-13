@@ -22,8 +22,7 @@ let Movie = mongoose.model('Movie',
 
 
 app.get("/",async (req,res)=>{
- /* let result = await Movie.find(); */
- let result = {name: "Feri"}
+ let result = await Movie.find();
 
 
   res.send(JSON.stringify(result))
