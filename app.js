@@ -22,13 +22,16 @@ let Movie = mongoose.model('Movie',
 
 
 app.get("/",async (req,res)=>{
-  let result = await Movie.find();
+ /*  let result = await Movie.find(); */
+ let result = {name:'Feri'}
 
   res.send(`${result}`)
 })
 
-app.listen(process.env.PORT, '0.0.0.0', function(err) {
-  console.log("Started listening on %s", app.url);
+let PORT = process.env.PORT || 3000;
+
+app.listen(PORT, '0.0.0.0', function(err) {
+  console.log("Started listening on ", PORT);
 });
 
 
