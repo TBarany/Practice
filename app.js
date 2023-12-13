@@ -25,7 +25,7 @@ app.get("/",async (req,res)=>{
  /*  let result = await Movie.find(); */
  let result = {name:'Feri'}
 
-  res.send(`${result}`)
+  res.json(`${result}`)
 })
 
 let PORT = process.env.PORT || 3000;
