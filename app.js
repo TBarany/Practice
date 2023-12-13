@@ -10,6 +10,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"))
 
+
 let Movie = mongoose.model('Movie', 
                new Schema({ title: String}), 
                'movies');   
