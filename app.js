@@ -25,13 +25,14 @@ app.get("/",async (req,res)=>{
  let result = await Movie.find();
 
 
-  res.status(200).send(JSON.stringify(result))
+  res.send(JSON.stringify(result))
 })
 
-let PORT = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 
-app.listen(PORT, '0.0.0.0', function(err) {
-  console.log("Started listening on ", PORT);
+
+app.listen(port, '0.0.0.0', function(err) {
+  console.log("Started listening on ", port);
 });
 
 
