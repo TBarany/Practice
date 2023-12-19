@@ -23,7 +23,14 @@ let Movie = mongoose.model('Movie',
 
 
 
-app.get("movie/:id",async (req,res)=>{
+app.get("/movie",async (req,res)=>{
+  
+  let result = await Movie.find();
+  res.send(JSON.stringify(result))
+})
+
+
+app.get("/movie/:id",async (req,res)=>{
   let givenID = req.params.id;
 
  let result = await Movie.findOne({"_id":givenID});
@@ -31,13 +38,6 @@ app.get("movie/:id",async (req,res)=>{
 
   res.send(JSON.stringify(result))
 })
-
-app.get("/movie",async (req,res)=>{
- 
- let result = await Movie.find();
- res.send(JSON.stringify(result))
-})
-
 
 var port = process.env.PORT || 3000;
 
