@@ -23,7 +23,7 @@ let Movie = mongoose.model('Movie',
 // Works
 
 const corsOptions = {
-  origin:"https://example-22gu.onrender.com/movie/652c3aadaaae2fdc903d3536"
+  origin:"https://example-22gu.onrender.com"
 };
 app.use(cors(corsOptions));
 
