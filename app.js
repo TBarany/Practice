@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
+const cors = require('cors');
 mongoose.connect("mongodb+srv://admin:admin@cluster0.hvqqeen.mongodb.net/geekShopDB?retryWrites=true&w=majority");
 
 
@@ -21,6 +22,10 @@ let Movie = mongoose.model('Movie',
 
 // Works
 
+const corsOptions = {
+  origin:"https://example-22gu.onrender.com/movie/652c3aadaaae2fdc903d3536"
+};
+app.use(cors(corsOptions));
 
 
 app.get("/movie",async (req,res)=>{
