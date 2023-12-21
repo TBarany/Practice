@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
-const cors = require('cors');
+/* const cors = require('cors'); */
 mongoose.connect("mongodb+srv://admin:admin@cluster0.hvqqeen.mongodb.net/geekShopDB?retryWrites=true&w=majority");
 
 
@@ -22,10 +22,19 @@ let Movie = mongoose.model('Movie',
 
 // Works
 
-const corsOptions = {
+/* const corsOptions = {
   origin:"https://example-22gu.onrender.com"
-};
-app.use(cors(corsOptions));
+}; 
+app.use(cors(corsOptions));*/
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 
 app.get("/movie",async (req,res)=>{
